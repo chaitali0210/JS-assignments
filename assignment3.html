@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <h1>This is my Third Assignment</h1>
+    <body>
+        <script>
+            var dates = new Date();
+            var dd = dates.getDate();
+            var mm = dates.getMonth()+1; 
+            var yyyy = dates.getFullYear();
+            if(dd<10) 
+            {
+                dd='0'+dd;
+            } 
+            if(mm<10) 
+            {
+                mm='0'+mm;
+            } 
+            dates = mm+'-'+dd+'-'+yyyy;
+            document.write(dates);
+            document.write("<br>");
+            dates = mm+'/'+dd+'/'+yyyy;
+            document.write(dates);
+            document.write("<br>");
+            dates = dd+'-'+mm+'-'+yyyy;
+            document.write(dates);
+            document.write("<br>");
+            dates = dd+'/'+mm+'/'+yyyy;
+            document.write(dates);
+        </script>
+    </body>
+</html>
