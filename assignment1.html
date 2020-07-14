@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <h1>
+        This is my First Assignment
+    </h1>
+    <body>
+        <script>
+            var presentDay = new Date();
+            var day = presentDay.getDay();
+            var nameOFDays =["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"]
+            document.write("Today is :"+nameOFDays[day]+'.');
+            document.write("<br>");
+            var hour = presentDay.getHours();
+            var mins = presentDay.getMinutes();
+            var sec = presentDay.getSeconds();
+            var suffix = (hour >= 12)? " PM ":" AM ";  
+            hour = (hour >= 12)? hour - 12: hour;  
+            if (hour===0 && suffix===' PM ')   
+            {   
+                if (mins==0 && sec==0)  
+                {   
+                    hour=12;  
+                    suffix=' Noon';  
+                }   
+                else  
+                {   
+                    hour=12;  
+                    suffix=' PM';  
+                }   
+            }   
+            if (hour===0 && suffix===' AM ')   
+            {   
+                if (mins==0 && sec==0)  
+                {   
+                    hour=12;  
+                    suffix=' Midnight';  
+                }   
+                else  
+                {   
+                    hour=12;  
+                    suffix=' AM';  
+                }   
+            }  
+            
+            document.write("Current Time : "+hour + suffix + " : " + mins + " : " + sec);
+            
+        </script>
+    </body>
+</html>
