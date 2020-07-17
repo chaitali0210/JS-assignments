@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <script>
+        let marks = prompt('Enter your marks');
+        let grade;
+        if(marks==100){
+            grade = 'O';
+        }
+        if(marks >85){
+            grade='A+'
+        }
+        if(marks> 70){
+            grade = 'A';
+        }
+        if(marks >55){
+            grade='B+'
+        }
+        if(marks> 45){
+            grade = 'B';
+        }
+        else{
+            grade ='D \n You Failed! Try Harder Next Time!'
+        }
+        console.log('Marks are '+marks+ ' and grade is '+grade)
+        
+
+    </script>
+    
+</body>
+</html>
