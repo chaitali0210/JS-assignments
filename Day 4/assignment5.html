@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5</title>
+</head>
+<body>
+    <h1>
+        Reward
+    </h1>
+    <script>
+        let amount = Number(prompt('Enter the amount'));
+
+        
+        
+        let reward = function(sales){
+            
+            let result1;
+            let result2;
+            let result3;
+            let result4;
+            switch (true) {
+                case (sales>20000):
+                    result1 = (amount-20000)*0.1;
+                case (sales>10000):
+                    result2 = (amount-10000)*0.07;
+                case (sales>5000):
+                    result3 = (amount-5000)*0.05;
+                case (sales>0):
+                    result4 = 5000*0.02;    
+            }
+            let totalCommission = result1+result2+result3+result4;
+            console.log(totalCommission);
+    
+        }
+        reward(amount);
+    </script>
+    
+</body>
+</html>

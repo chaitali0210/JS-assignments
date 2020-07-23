@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+</head>
+<body>
+    <h1>
+        FIZZBUZZ
+    </h1>
+    <script>
+        for (let i = 0;i < 101;i++) {
+            if (i % 3 == 0 && i%5 == 0) {
+                console.log(i+'-'+"fizzbuzz");
+                continue;
+                
+            }
+            if (i % 3==0) {
+                console.log(i+'-'+'fizz');
+                continue;
+                
+            }
+            if(i% 5 == 0){
+                console.log(i+'-'+"buzz");
+            }
+            
+            
+        }
+    </script>
+    
+</body>
+</html>
