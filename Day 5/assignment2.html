@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+</head>
+<body>
+    <h1>OOPS</h1>
+    <script>debugger;
+        class User{
+            constructor(name,age,email){
+                this.name=name;
+                this.age=age;
+                this.email=email;
+                this.coins=0;
+                this.courses = [];
+            }
+            login(){
+                console.log(`${this.name} is logged in`);
+                return this;
+
+            }
+            logout(){
+                console.log(`${this.name} is logged out`);
+                return this;}
+
+        }
+        class Moderator extends User{
+            addCoins(user){
+                this.coins++;
+                console.log(`${this.name} has ${this.coins} coins`);
+                return this;
+
+            }
+            removeCoins(user){
+                this.coins--;
+                console.log(`${this.name} has ${this.coins} coins`);
+                return this;
+
+            }
+
+        }
+        class Admin extends Moderator{
+            addCourse(user,course){
+                user.courses.push(course);
+                console.log(user);
+            }
+            removeCourse(user,course){
+                user.courses.pop(course);
+                console.log(user);
+            }
+        }
+        let user1= new User('Chaitali',20,'chai@gmail.com');
+        let user2= new User('Ateksha',27,'atei@gmail.com');
+        let mod =new Moderator('Beena',30,'terebeena@kyajeena.com');
+        let admin1 = new Admin('Tasha',24,'tashaki@bhasha.com');
+        let users = [user1,user2,mod,admin1];
+        mod.addCoins(user1)
+        admin1.addCoins(user1).addCourse(user1,"Javascript");
+        admin1.addCourse(user1,'BlockChain');
+        admin1.removeCoins(user1).removeCourse(user1,'Blockchain');
+        users.map(el=>{
+            console.log(el);
+        });
+        
+    </script>
+    
+</body>
+</html>
