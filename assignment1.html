@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="start()">
+    <h1 id="text">Enjoy the VIBGYOR effect!</h1>
+    <script>
+        let color = ["black","violet","indigo","blue","green", "yellow","orange" ,"red"];
+      
+        function changeColor() {
+          setTimeout(function loop() {
+            document.body.style.backgroundColor = color.shift();
+            if (color.length) {
+              setTimeout(loop, 5000);
+            }
+            
+            if(document.body.style.backgroundColor=="black"){
+                document.body.style.color="white";}
+            else{
+                document.body.style.color="black";
+
+            }
+          }, 5000);
+        }
+      
+        function start() {
+          setInterval(changeColor(), 5000);
+        }
+        
+        
+        
+      </script>
+      
+     
+    
+</body>
+</html>
