@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    </style>
+    <title>Assignment 3</title>
+  </head>
+  <body>
+    <button onclick="darkMode()">Switch To Dark Mode</button>
+    <h1 id="title">Welcome</h1>
+    <h4 id="clock"></h4>
+    <script>
+      let name = prompt("enter your name");
+      title.innerText += ` to this page ${name}!`;
+
+      const clocks = document.getElementById("clock");
+      function clock() {
+        let date = new Date();
+        let time = date.toLocaleTimeString();
+        clocks.innerText = time;
+      }
+      setInterval(clock, 1000);
+      function darkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>
