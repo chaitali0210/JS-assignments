@@ -1,6 +1,13 @@
 const addTask = document.querySelector('.addTask');
-var input=document.querySelector('.input');
+var inputValue=document.querySelector('.input');
 const container = document.querySelector('.container');
+
+if(window.localStorage.getItem("todos") == undefined){
+    var todos = [];
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+}
+var todosEX = window.localStorage.getItem("todos");
+var todos = JSON.parse(todosEX);
 
 class item{
     constructor(itemName){
@@ -8,7 +15,7 @@ class item{
         this.createDiv(itemName);
 
     }
-    
+
     createDiv(itemName){
         let input = document.createElement('input');
         input.value = itemName;
@@ -27,32 +34,58 @@ class item{
         removeTask.innerHTML='REMOVE';
         removeTask.classList.add('removeTask');
 
+
+
+        editTask.addEventListener('click', () => this.editTask(input,itemName));
+
+        removeTask.addEventListener('click', () =>this.removeTask(itemBox,itemName));
         container.appendChild(itemBox);
 
         itemBox.appendChild(input);
         itemBox.appendChild(editTask);
         itemBox.appendChild(removeTask);
-
-        editTask.addEventListener('click', () => this.edit(input));
-
-        removeTask.addEventListener('click', () => this.remove(input));
         
 
     }
 
-    edit(input){
-        input.disabled = !input.disabled;
+    editTask(input,itemName){
+        if(input.disabled == true){
+            input.disabled = !input.disabled;
+         }
+        else{
+            input.disabled = !input.disabled;
+            let indexof = todos.indexOf(name);
+            todos[indexof] = input.value;
+            window.localStorage.setItem("todos", JSON.stringify(todos));
+        }
     }
+        
+    
 
-    remove(item){
-        container.removeChild(item);
+    removeTask(itemBox,itemName){
+        itemBox.parentNode.removeChild(itemBox);
+        let index = todos.indexOf(name);
+        todos.splice(index, 1);
+        window.localStorage.setItem("todos", JSON.stringify(todos));
+        
     }
     
 }
 function check(){
-    if(input.value != ''){
-       new item(input.value); 
-       input.value= "";
+    if(inputValue.value != ''){
+       new item(inputValue.value);
+       todos.push(inputValue.value);
+       window.localStorage.setItem("todos", JSON.stringify(todos)); 
+       inputValue.value= "";
     }
 }
 addTask.addEventListener('click' , check);
+window.addEventListener('keydown',(e)=> {
+    if(e.which == 13){
+        check();
+    }
+})
+for (var v = 0 ; v < todos.length ; v++){
+    new item(todos[v]);
+}
+new item('med');
